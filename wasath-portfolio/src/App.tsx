@@ -35,7 +35,7 @@ export default function App() {
         <motion.div {...sectionAnim}><Experience /></motion.div>
         <motion.div {...sectionAnim}><Projects /></motion.div>
         <motion.div {...sectionAnim}><Education /></motion.div>
-        <motion.div {...sectionAnim}><PreparationProfessionalWorld /></motion.div>
+        <motion.div {...sectionAnim} viewport={{ once: true, amount: "some" }}><PreparationProfessionalWorld /></motion.div>
         <motion.div {...sectionAnim}><Contact /></motion.div>
       </main>
       <Footer />
