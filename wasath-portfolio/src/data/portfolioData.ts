@@ -10,7 +10,7 @@ export const personalInfo = {
     phone: "+94 76 447 9005",
     linkedin: "https://www.linkedin.com/in/wasath-jayasundara-4a7069286",
     github: "https://github.com/wasathjayasundara7",
-    location: "Wadduwa, Sri Lanka",
+    location: "Colombo, Sri Lanka",
     university: "Sri Lanka Institute of Information Technology (SLIIT)",
 };
 
@@ -125,10 +125,10 @@ export const projects: Project[] = [
 
 export const education: Education[] = [
     {
-        degree: "B.Sc. (Hons) in Information Technology — Specializing in IT",
+        degree: "B.Sc. (Hons) in Information Technology - Specializing in IT",
         institution: "Sri Lanka Institute of Information Technology (SLIIT)",
-        period: "2021 – Present (Final Year, Final Semester)",
-        note: "Focus: Agile, System Design, HCI/UI/UX, Database Management, ML",
+        period: "2022 - Present (Final Year, Final Semester)",
+        // note: "Focus: Agile, System Design, HCI/UI/UX, Database Management, ML",
     },
     {
         degree: "Secondary Education (G.C.E. Advanced Level)",

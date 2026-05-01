@@ -14,5 +14,10 @@ export default function CursorGlow() {
         return () => window.removeEventListener("mousemove", move);
     }, []);
 
-    return <div ref={ref} className="cursor-glow hidden lg:block" />;
+    return (
+        <div ref={ref} className="cursor-glow">
+            <div className="cursor-glow-halo" />
+            <div className="cursor-glow-core" />
+        </div>
+    );
 }

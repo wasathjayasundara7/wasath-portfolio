@@ -44,6 +44,10 @@
     scroll-behavior: smooth;
   }
 
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+
   body {
     @apply bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text font-body;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -87,11 +91,86 @@
 .cursor-glow {
   pointer-events: none;
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
   transform: translate(-50%, -50%);
-  transition: left 0.08s, top 0.08s;
+  transition: left 0.1s ease-out, top 0.1s ease-out;
   z-index: 9999;
+  display: block;
+}
+
+.cursor-glow-halo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 230, 253, 0.34) 0%, rgba(56, 189, 248, 0.18) 34%, rgba(37, 99, 235, 0.08) 56%, transparent 74%);
+  filter: blur(8px);
+}
+
+.cursor-glow-core {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(219, 234, 254, 0.85) 55%, rgba(191, 219, 254, 0.45) 100%);
+  box-shadow: 0 0 26px rgba(224, 242, 254, 0.62), 0 0 68px rgba(59, 130, 246, 0.28);
+}
+
+.tiny-cursor-blink {
+  display: inline-block;
+  margin-left: 0.08em;
+  animation: tinyCursorBlink 0.85s steps(1, end) infinite;
+}
+
+@keyframes tinyCursorBlink {
+  0%, 45% {
+    opacity: 1;
+  }
+  46%, 100% {
+    opacity: 0.12;
+  }
+}
+
+.global-bubble {
+  position: fixed;
+  width: 176px;
+  height: 176px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.global-bubble-halo {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(186, 230, 253, 0.3) 0%, rgba(56, 189, 248, 0.14) 38%, rgba(29, 78, 216, 0.07) 62%, transparent 76%);
+  filter: blur(8px);
+}
+
+.global-bubble-core {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.92) 0%, rgba(219, 234, 254, 0.82) 58%, rgba(191, 219, 254, 0.4) 100%);
+  box-shadow: 0 0 22px rgba(224, 242, 254, 0.56), 0 0 60px rgba(59, 130, 246, 0.22);
+}
+
+@media (max-width: 767px) {
+  .global-bubble {
+    width: 124px;
+    height: 124px;
+  }
+
+  .global-bubble-core {
+    width: 44px;
+    height: 44px;
+  }
 }

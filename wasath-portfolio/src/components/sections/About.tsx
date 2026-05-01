@@ -28,12 +28,12 @@ export default function About() {
                         initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }} transition={{ duration: 0.7 }}
                     >
-                        <p className="text-gray-700 dark:text-gray-400 leading-8 mb-6 text-base">I have gained hands-on experience working closely with cross-functional teams as a Technical Product Manager Intern at Dialog Axiata PLC. In this role, I supported project planning and execution, coordinated feature-related activities, tracked progress across teams, and contributed to timely platform enhancements, strengthening my foundation in project coordination and stakeholder management.</p>
+                        <p className="text-gray-700 dark:text-gray-400 leading-8 mb-6 text-base">{personalInfo.bio}</p>
                         <div className="space-y-3">
                             {[
                                 { icon: <MapPin size={16} />, text: personalInfo.location },
                                 { icon: <GraduationCap size={16} />, text: personalInfo.university },
-                                { icon: <Briefcase size={16} />, text: "Mainly open to Graduate PM, BA, and UI/UX Designer Roles" },
+                                { icon: <Briefcase size={16} />, text: "Open to Graduate PM / BA Roles" },
                             ].map(({ icon, text }) => (
                                 <div key={text} className="flex items-center gap-3 text-gray-700 dark:text-gray-300 text-sm">
                                     <span className="text-primary-400">{icon}</span>

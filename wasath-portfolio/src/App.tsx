@@ -10,25 +10,33 @@ import Contact from "./components/sections/Contact";
 import PreparationProfessionalWorld from "./components/sections/PreparationProfessionalWorld";
 import LoadingScreen from "./components/ui/LoadingScreen";
 import ScrollProgress from "./components/ui/ScrollProgress";
-import CursorGlow from "./components/ui/CursorGlow";
 import { ThemeProvider } from "./context/ThemeContext";
+import { motion } from "framer-motion";
+import GlobalBubble from "./components/ui/GlobalBubble";
 
 export default function App() {
+  const sectionAnim = {
+    initial: { opacity: 0, y: 36 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.65, ease: "easeOut" as const },
+  };
+
   return (
     <ThemeProvider>
       <LoadingScreen />
       <ScrollProgress />
-      <CursorGlow />
+      <GlobalBubble />
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <PreparationProfessionalWorld />
-        <Contact />
+        <motion.div {...sectionAnim}><Hero /></motion.div>
+        <motion.div {...sectionAnim}><About /></motion.div>
+        <motion.div {...sectionAnim}><Skills /></motion.div>
+        <motion.div {...sectionAnim}><Experience /></motion.div>
+        <motion.div {...sectionAnim}><Projects /></motion.div>
+        <motion.div {...sectionAnim}><Education /></motion.div>
+        <motion.div {...sectionAnim}><PreparationProfessionalWorld /></motion.div>
+        <motion.div {...sectionAnim}><Contact /></motion.div>
       </main>
       <Footer />
     </ThemeProvider>

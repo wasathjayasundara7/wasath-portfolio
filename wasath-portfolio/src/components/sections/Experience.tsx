@@ -15,9 +15,10 @@ export default function Experience() {
     return (
         <section id="experience" className="section-padding dark:bg-dark-card relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none">
-                <img src={expBg1} alt="" className="absolute top-0 left-0 w-1/2 h-1/2 object-cover opacity-5 dark:opacity-10" />
-                <img src={expBg2} alt="" className="absolute top-1/4 right-0 w-1/2 h-1/2 object-cover opacity-5 dark:opacity-10" />
-                <img src={expBg3} alt="" className="absolute bottom-0 left-1/4 w-1/2 h-1/2 object-cover opacity-5 dark:opacity-10" />
+                <img src={expBg1} alt="" className="absolute top-0 left-0 w-full md:w-1/3 h-1/3 md:h-full object-cover opacity-[0.2] md:opacity-[0.22]" />
+                <img src={expBg2} alt="" className="absolute top-1/3 md:top-0 left-0 md:left-1/3 w-full md:w-1/3 h-1/3 md:h-full object-cover opacity-[0.2] md:opacity-[0.22]" />
+                <img src={expBg3} alt="" className="absolute top-2/3 md:top-0 left-0 md:left-2/3 w-full md:w-1/3 h-1/3 md:h-full object-cover opacity-[0.2] md:opacity-[0.22]" />
+                <div className="absolute inset-0 bg-black/45 md:bg-black/40" />
             </div>
             <div className="max-w-4xl mx-auto relative z-10">
                 <SectionTitle title="Experience"
@@ -66,7 +67,7 @@ export default function Experience() {
                                         <h3 className="text-xl font-display font-bold text-gray-900 dark:text-white">{exp.role}</h3>
                                         <p className="text-primary-400 font-body font-medium">{exp.company}</p>
                                     </div>
-                                    <span className="text-xs font-mono text-gray-700 dark:text-gray-500 glass px-3 py-1 rounded-full">
+                                    <span className="text-xs font-mono text-primary-400 glass px-3 py-1 rounded-full">
                                         {exp.period}
                                     </span>
                                 </div>

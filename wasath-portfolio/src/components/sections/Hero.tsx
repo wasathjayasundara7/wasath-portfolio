@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, ChevronDown, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -6,7 +6,21 @@ import { personalInfo } from "../../data/portfolioData";
 import heroProfileBg from "../../assets/images/WhatsApp Image 2026-04-28 at 4.58.01 PM.jpeg";
 
 export default function Hero() {
-    const [bubblePos, setBubblePos] = useState({ x: 50, y: 50 });
+    const [typedName, setTypedName] = useState("");
+
+    useEffect(() => {
+        const fullName = personalInfo.name;
+        let i = 0;
+        const timer = setInterval(() => {
+            i += 1;
+            setTypedName(fullName.slice(0, i));
+            if (i >= fullName.length) clearInterval(timer);
+        }, 80);
+
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
 
     return (
         <section
@@ -22,7 +36,6 @@ export default function Hero() {
                     className="w-full h-full object-cover opacity-10 dark:opacity-20"
                 />
             </div>
-
             <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2
                       gap-8 lg:gap-12 items-center pt-24 pb-16">
                 {/* Left — Text */}
@@ -40,8 +53,10 @@ export default function Hero() {
                         transition={{ delay: 0.35 }}
                         className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold mb-4 leading-tight"
                     >
-                        <span className="text-gray-900 dark:text-white">{personalInfo.name.split(" ")[0]} </span>
-                        <span className="text-gradient">{personalInfo.name.split(" ")[1]}</span>
+                        <span className="text-gradient">
+                            {typedName}
+                            <span className="tiny-cursor-blink text-primary-500">|</span>
+                        </span>
                     </motion.h1>
 
                     <motion.p
@@ -67,9 +82,9 @@ export default function Hero() {
                     >
                         <a
                             href="#contact"
-                            className="px-6 py-3 bg-primary-600 hover:bg-primary-500 rounded-xl
+                            className="px-6 py-3 bg-gradient-to-r from-primary-500 via-accent to-primary-400 rounded-xl
                          text-white font-body font-medium transition-all duration-300
-                         shadow-lg shadow-primary-600/30 hover:shadow-primary-500/50"
+                         shadow-lg shadow-primary-500/30 hover:shadow-primary-400/50 hover:brightness-110"
                         >
                             Get In Touch
                         </a>
@@ -107,25 +122,11 @@ export default function Hero() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4, duration: 0.8 }}
-                    className="w-full h-[300px] sm:h-[360px] lg:h-[520px] mt-2 lg:mt-0"
-                    onMouseMove={(e) => {
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        const x = ((e.clientX - rect.left) / rect.width) * 100;
-                        const y = ((e.clientY - rect.top) / rect.height) * 100;
-                        setBubblePos({ x, y });
-                    }}
+                    className="w-full h-[200px] sm:h-[260px] lg:h-[420px] mt-2 lg:mt-0"
                 >
-                    <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-primary-900 via-[#021a6b] to-dark-bg border border-primary-500/20">
-                        <motion.div
-                            animate={{ left: `${bubblePos.x}%`, top: `${bubblePos.y}%` }}
-                            transition={{ type: "spring", stiffness: 80, damping: 18 }}
-                            className="absolute w-32 h-32 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                        >
-                            <div className="absolute inset-0 rounded-full bg-cyan-200/80 blur-2xl" />
-                            <div className="absolute inset-6 rounded-full bg-white/90 blur-sm" />
-                        </motion.div>
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(2,8,46,0.7)_100%)]" />
-                    </div>
+                    {/* <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-primary-900/40 via-[#021a6b]/25 to-dark-bg/20">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(2,8,46,0.45)_100%)]" />
+                    </div> */}
                 </motion.div>
             </div>
 

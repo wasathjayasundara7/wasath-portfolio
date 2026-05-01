@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "postinstall": "npm --prefix ./wasath-portfolio install",
     "dev": "npm --prefix ./wasath-portfolio run dev",
     "build": "npm --prefix ./wasath-portfolio run build",
     "lint": "npm --prefix ./wasath-portfolio run lint",

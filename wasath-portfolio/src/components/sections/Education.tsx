@@ -9,8 +9,8 @@ export default function Education() {
     return (
         <section id="education" className="section-padding dark:bg-dark-card relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none">
-                <img src={eduBg1} alt="" className="absolute top-0 left-0 w-1/2 h-full object-cover opacity-5 dark:opacity-10" />
-                <img src={eduBg2} alt="" className="absolute top-0 right-0 w-1/2 h-full object-cover opacity-5 dark:opacity-10" />
+                <img src={eduBg1} alt="" className="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full object-cover opacity-[0.18] md:opacity-[0.12] dark:opacity-[0.22]" />
+                <img src={eduBg2} alt="" className="absolute bottom-0 md:top-0 right-0 w-full md:w-1/2 h-1/2 md:h-full object-cover opacity-[0.18] md:opacity-[0.12] dark:opacity-[0.22]" />
             </div>
             <div className="max-w-3xl mx-auto relative z-10">
                 <SectionTitle title="Education" />

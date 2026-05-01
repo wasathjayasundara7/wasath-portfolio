@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "../ui/ThemeToggle";
@@ -15,6 +15,27 @@ export default function Navbar() {
     }, []);
 
     const initials = "IamWasath";
+    const handleNavClick = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        setOpen(false);
+        const id = href.startsWith("#") ? href.slice(1) : href;
+        const target = document.getElementById(id);
+        if (!target) return;
+
+        const scrollToTarget = () => {
+            const header = document.querySelector("header");
+            const headerHeight = header instanceof HTMLElement ? header.offsetHeight : 88;
+            const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+            window.scrollTo({ top, behavior: "smooth" });
+            window.history.replaceState(null, "", `#${id}`);
+        };
+
+        if (window.innerWidth < 1024) {
+            window.setTimeout(scrollToTarget, 180);
+        } else {
+            scrollToTarget();
+        }
+    };
 
     return (
         <motion.header
@@ -36,6 +57,7 @@ export default function Navbar() {
                         <li key={link.href}>
                             <a
                                 href={link.href}
+                                onClick={handleNavClick(link.href)}
                                 className="text-sm font-body text-gray-700 dark:text-gray-400 hover:text-primary-400
                            transition-colors relative group"
                             >
@@ -51,8 +73,8 @@ export default function Navbar() {
                     <ThemeToggle />
                     <a
                         href={`mailto:${personalInfo.email}`}
-                        className="px-4 py-2 text-sm font-body bg-primary-600 hover:bg-primary-500
-                       rounded-lg text-white transition-colors"
+                        className="px-4 py-2 text-sm font-body glass text-primary-400 hover:text-accent
+                       rounded-lg transition-colors"
                     >
                         Hire Me
                     </a>
@@ -81,7 +103,7 @@ export default function Navbar() {
                                 <li key={link.href}>
                                     <a
                                         href={link.href}
-                                        onClick={() => setOpen(false)}
+                                        onClick={handleNavClick(link.href)}
                                         className="block text-gray-700 dark:text-gray-300 hover:text-primary-400 transition-colors"
                                     >
                                         {link.label}
