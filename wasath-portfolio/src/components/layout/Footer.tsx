@@ -7,7 +7,6 @@ export default function Footer() {
                 © {new Date().getFullYear()}{" "}
                 <span className="text-primary-400 font-medium">{personalInfo.name}</span>.
             </p>
-            {/* <p className="text-xs text-gray-600 mt-1">Crafted with ❤️ in Sri Lanka</p> */}
         </footer>
     );
 }

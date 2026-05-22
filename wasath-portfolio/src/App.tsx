@@ -7,7 +7,7 @@ import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
 import Education from "./components/sections/Education";
 import Contact from "./components/sections/Contact";
-import PreparationProfessionalWorld from "./components/sections/PreparationProfessionalWorld";
+// import PreparationProfessionalWorld from "./components/sections/PreparationProfessionalWorld";
 import LoadingScreen from "./components/ui/LoadingScreen";
 import ScrollProgress from "./components/ui/ScrollProgress";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -35,7 +35,7 @@ export default function App() {
         <motion.div {...sectionAnim}><Experience /></motion.div>
         <motion.div {...sectionAnim}><Projects /></motion.div>
         <motion.div {...sectionAnim}><Education /></motion.div>
-        <motion.div {...sectionAnim} viewport={{ once: true, amount: "some" }}><PreparationProfessionalWorld /></motion.div>
+        {/* <motion.div {...sectionAnim} viewport={{ once: true, amount: "some" }}><PreparationProfessionalWorld /></motion.div> */}
         <motion.div {...sectionAnim}><Contact /></motion.div>
       </main>
       <Footer />

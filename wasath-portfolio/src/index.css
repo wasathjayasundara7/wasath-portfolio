@@ -26,9 +26,12 @@
   --animate-gradient-x: gradientX 4s ease infinite;
 
   @keyframes gradientX {
-    0%, 100% {
+
+    0%,
+    100% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
@@ -127,10 +130,14 @@
 }
 
 @keyframes tinyCursorBlink {
-  0%, 45% {
+
+  0%,
+  45% {
     opacity: 1;
   }
-  46%, 100% {
+
+  46%,
+  100% {
     opacity: 0.12;
   }
 }
